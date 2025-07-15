@@ -245,7 +245,7 @@ export default function Home() {
   return (
     
     
-    <div className="min-h-screen relative overflow-hidden">
+    <div className="min-h-screen relative overflow-hidden cursor-default">
     
       {/* Dynamic Spotlight Effect */}
       
@@ -266,11 +266,11 @@ export default function Home() {
       />
        */}
       {/* Content wrapper with higher z-index */}
-      <div className="relative z-10">
+      <div className="relative z-10 cursor-default">
         <Navigation />
 
         {/* ──────────────────  HERO SECTION  ────────────────── */}
-        <section id="hero" className="relative overflow-hidden pt-24 pb-20 px-4">
+        <section id="hero" className="relative overflow-hidden pt-24 pb-20 px-4 cursor-default">
           <CssGridBackground/>
           <FramerSpotlight/>
     
@@ -316,12 +316,12 @@ export default function Home() {
               </motion.p>
 
               {/* INPUT + CTA */}
-              <motion.div className="mx-auto mt-10 flex max-w-md flex-col gap-4 sm:flex-row md:mx-0" variants={fadeInUp}>
+              <motion.div className="mx-auto mt-5 flex max-w-md flex-col gap-4 sm:flex-row md:mx-0" variants={fadeInUp}>
                 <Input
                   placeholder={heroContent?.inputPlaceholder}
                   className="h-12 flex-1 rounded-md border-blue-500/30 bg-slate-800/50 text-white placeholder:text-slate-400 shadow-[0_0_20px_rgba(59,130,246,0.3)] focus:border-blue-400/50 focus:shadow-[0_0_30px_rgba(59,130,246,0.5)]"
                 />
-                <Button className="h-12 px-8 shadow-[0_0_20px_rgba(59,130,246,0.4)] hover:shadow-[0_0_30px_rgba(59,130,246,0.6)]">
+                <Button className="h-12 px-8 bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 text-white font-semibold border-0 rounded-lg shadow-[0_0_30px_rgba(59,130,246,0.6)] hover:shadow-[0_0_40px_rgba(59,130,246,0.8)] hover:bg-gradient-to-r hover:from-blue-500 hover:via-blue-400 hover:to-cyan-400 transition-all duration-300 transform hover:scale-105 cursor-pointer">
                   {heroContent?.ctaText}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
@@ -368,7 +368,7 @@ export default function Home() {
         </section>
 
         {/* ──────────────────  SERVICES  ────────────────── */}
-        <section className="py-20 px-4">
+        <section className="py-20 px-4 cursor-default">
           <div className="container mx-auto max-w-6xl">
             <motion.div
               initial="initial"
@@ -407,7 +407,7 @@ export default function Home() {
         </section>
 
         {/* ──────────────────  TESTIMONIALS  ────────────────── */}
-        <section className="bg-slate-800/30 py-20 px-4">
+        <section className="bg-slate-800/30 py-20 px-4 cursor-default">
           <div className="container mx-auto max-w-6xl">
             <motion.div
               initial="initial"
@@ -443,7 +443,7 @@ export default function Home() {
         </section>
 
         {/* ──────────────────  CTA  ────────────────── */}
-        <section className="py-20 px-4">
+        <section className="py-20 px-4 cursor-default">
           <div className="container mx-auto max-w-4xl">
             <motion.div
               initial="initial"
