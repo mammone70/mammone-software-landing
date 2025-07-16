@@ -27,9 +27,9 @@ export default function Navigation() {
       transition={{ duration: 0.6 }}
     >
       <CssGridBackground/>
-          <FramerSpotlight/>
+      <FramerSpotlight/>
     
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 py-2">
       
         <div className="flex items-center justify-between px-2 pt-4 h-16">
           {/* Logo */}
@@ -37,11 +37,11 @@ export default function Navigation() {
             {/* <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-sm">M</span>
             </div> */}
-            <span className="text-white font-bold text-xl">Mammone Software</span>
+            <span className="text-white font-bold text-xl sm:text-xl text-lg">Mammone Software</span>
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
               <motion.a
                 key={item.name}
@@ -56,30 +56,27 @@ export default function Navigation() {
 
           {/* Right Side Actions */}
           <div className="flex items-center space-x-4">
+            {/* Theme Toggle - Hidden on mobile */}
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setIsDark(!isDark)}
-              className="text-slate-300 hover:text-white"
+              className="hidden lg:flex text-slate-300 hover:text-white"
             >
               {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
 
-            {/* <Button className="hidden md:flex bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 text-white font-semibold border-0 rounded-lg shadow-[0_0_30px_rgba(59,130,246,0.6),inset_0_1px_0_rgba(255,255,255,0.2)] hover:shadow-[0_0_40px_rgba(59,130,246,0.8),inset_0_1px_0_rgba(255,255,255,0.3)] hover:bg-gradient-to-r hover:from-blue-500 hover:via-blue-400 hover:to-cyan-400 transition-all duration-300 transform hover:scale-105 relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700"> */}
-                         <Button className="h-12 px-8 bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 text-white font-semibold border-0 rounded-lg shadow-[0_0_40px_rgba(59,130,246,0.7)] hover:shadow-[0_0_50px_rgba(59,130,246,0.9)] hover:bg-gradient-to-r hover:from-blue-500 hover:via-blue-400 hover:to-cyan-400 transition-all duration-300 transform hover:scale-105 cursor-pointer">
+            {/* Get Quote Button - Hidden on mobile */}
+            <Button className="hidden lg:flex h-12 px-8 bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 text-white font-semibold border-0 rounded-lg shadow-[0_0_40px_rgba(59,130,246,0.7)] hover:shadow-[0_0_50px_rgba(59,130,246,0.9)] hover:bg-gradient-to-r hover:from-blue-500 hover:via-blue-400 hover:to-cyan-400 transition-all duration-300 transform hover:scale-105 cursor-pointer">
               Get Quote
               <ArrowRight className="ml-2 h-5 w-5" />
-
-              {/* <Badge variant="secondary" className="ml-2 bg-blue-500 text-white text-xs">
-                Free
-              </Badge> */}
             </Button>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Button - Show on screens smaller than lg */}
             <Button
               variant="ghost"
               size="icon"
-              className="md:hidden text-slate-300"
+              className="lg:hidden text-slate-300 hover:text-white"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -90,7 +87,7 @@ export default function Navigation() {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <motion.div
-            className="md:hidden py-4 border-t border-slate-800"
+            className="lg:hidden py-4 border-t border-slate-800"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
@@ -100,14 +97,16 @@ export default function Navigation() {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-slate-300 hover:text-white transition-colors py-2"
+                  className="text-slate-300 hover:text-white transition-colors py-2 text-lg font-medium"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.name}
                 </a>
               ))}
+              {/* Mobile Get Quote Button */}
               <Button className="w-full mt-4 bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 text-white font-semibold border-0 rounded-lg shadow-[0_0_40px_rgba(59,130,246,0.7)] hover:shadow-[0_0_50px_rgba(59,130,246,0.9)] hover:bg-gradient-to-r hover:from-blue-500 hover:via-blue-400 hover:to-cyan-400 transition-all duration-300 transform hover:scale-105 cursor-pointer">
                 Get Quote
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </div>
           </motion.div>
